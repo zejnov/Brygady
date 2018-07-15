@@ -1,0 +1,45 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <UserSecretsId>aspnet-Brygady2-CBF08121-4257-4C50-B94C-FE17FB58EDE0</UserSecretsId>
+    <AssemblyName>Brygady</AssemblyName>
+    <RootNamespace>Brygady</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20180614181613_start.cs" />
+    <Compile Remove="Migrations\20180614181613_start.Designer.cs" />
+    <Compile Remove="Migrations\20180614181801_start.cs" />
+    <Compile Remove="Migrations\20180614181801_start.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Lampy\wallhaven-122466.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Lampy\wallhaven-222936.jpg" />
+    <Content Include="Lampy\wallhaven-266905.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="2.1.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.0" PrivateAssets="All" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="2.5.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="2.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Areas\Identity\Services\" />
+    <Folder Include="Data\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="Views\Shared\_LoginLayout.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+  </ItemGroup>
+
+</Project>

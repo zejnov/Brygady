@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Brygady2.Models.Works>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Dodaj nową realizację</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IdWork)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TypeWork)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SettingBackup)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Note)
+            </th>
+            <th>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdWork)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TypeWork)
+            </td>
+            <td>
+                   <a tabindex="0" class="btn btn-link" role="button" data-toggle="popover" data-trigger="focus" title="Dismissible popover" 
+                   data-content="@Html.DisplayFor(modelItem => item.SettingBackup.FullSettingBackup)">@Html.DisplayFor(modelItem => item.SettingBackup.Comment)</a>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Note)
+            </td>
+
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdWork">Edytuj</a> |
+                <a asp-action="Details" asp-route-id="@item.IdWork">Szczegóły</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdWork">Usuń</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

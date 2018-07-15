@@ -1,0 +1,158 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>@ViewBag.Title</title>
+    <environment include="Development,Staging,Production">
+        <link rel="stylesheet" href="~/theme/assets/vendor/bootstrap/css/bootstrap.css" />
+        <link rel="stylesheet" href="~/theme/assets/vendor/font-awesome/css/font-awesome.css" />
+        <link rel="stylesheet" href="~/theme/assets/vendor/linearicons/style.css" />
+        <link rel="stylesheet" href="~/theme/assets/vendor/metisMenu/metisMenu.css" />
+        <link rel="stylesheet" href="~/theme/assets/vendor/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" />
+        <link rel="stylesheet" href="~/theme/assets/vendor/toastr/toastr.min.css" />
+        <!-- MAIN CSS -->
+        <link rel="stylesheet" href="~/theme/assets/css/main.css" />
+        <!-- GOOGLE FONTS -->
+        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
+        <!-- ICONS -->
+        <link rel="apple-touch-icon" sizes="76x76" href="~/theme/assets/img/apple-icon.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="~/theme/assets/img/favicon.png">
+    </environment>
+</head>
+<body>
+    <!-- WRAPPER -->
+    <div id="wrapper">
+        <!-- NAVBAR -->
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-btn">
+                    <button type="button" class="btn-toggle-offcanvas"><i class="lnr lnr-menu"></i></button>
+                </div>
+                <!-- logo -->
+                <div class="navbar-brand">
+                    <a asp-area="" asp-controller="Home" asp-action="index"><img src="/theme/assets/img/logo.png" alt="Brygady123 Logo..." height="35"></a>
+                </div>
+                <!-- end logo -->
+                <div class="navbar-right">
+                   
+
+                    <!-- search form -->
+                    <form id="navbar-search" class="navbar-form search-form"></form>
+                    <form id="navbar-search" class="navbar-form search-form">
+                        <input value="" class="form-control" placeholder="Szukaj" type="text">
+                        <button type="button" class="btn btn-default"><i class="fa fa-search"></i></button>
+                    </form>
+                    <!--czas form-->
+                    <!-- end search form -->
+                    <!-- navbar menu -->
+
+                    <!-- end navbar menu -->
+                </div>
+            </div>
+        </nav>
+        <!-- END NAVBAR -->
+        <partial name="_CookieConsentPartial" />
+
+
+        <!-- LEFT SIDEBAR -->
+        <div id="left-sidebar" class="sidebar">
+            <button type="button" class="btn btn-xs btn-link btn-toggle-fullwidth">
+                <span class="sr-only">Toggle Fullwidth</span>
+                <i class="fa fa-angle-left"></i>
+            </button>
+            <div class="sidebar-scroll">
+                <div class="user-account">
+                    <img src="~/theme/assets/img/brain150.png" class="img-responsive img-circle user-photo" alt="User Profile Picture">
+                    <!-- dropdown menu user-->
+                    <partial name="_LoginPartial" />
+
+
+                </div>
+                <nav id="left-sidebar-nav" class="sidebar-nav">
+                    <ul id="main-menu" class="metismenu">
+                        <li class="">
+                            <a href="#uiElements" class="has-arrow" aria-expanded="false"><i class="fa fa-shopping-cart"></i> <span>Zamówienia</span></a>
+                            <ul aria-expanded="true">
+                                <li class=""><a asp-area="" asp-controller="Orders" asp-action="Index"> <span>Lista zamówień</span></a></li>
+                                <li class=""><a asp-area="" asp-controller="Orders" asp-action="Create"> <span>Dodaj nowe zamówienie</span></a></li>
+                                <li class=""><a href="#">Szukaj Zamówienia</a></li>
+                            </ul>
+                        </li>
+
+
+                        <li class="">
+                            <a href="#uiElements" class="has-arrow" aria-expanded="false"><i class="fa fa-gavel"></i> <span>Realizacje</span></a>
+                            <ul aria-expanded="true">
+                                <li class=""><a asp-area="" asp-controller="Works" asp-action="Index"> <span>Lista Realizacji</span></a></li>
+                                <li class=""><a asp-area="" asp-controller="Works" asp-action="Create"> <span>Dodaj Protokół Realizacji</span></a></li>
+                                <li class=""><a href="#">Szukaj Realizacji</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="">
+                            <a href="#charts" class="has-arrow" aria-expanded="false"><i class="fa fa-photo"></i> <span>Zdjęcia</span></a>
+                            <ul aria-expanded="true">
+                                <li class=""><a asp-area="" asp-controller="Photos" asp-action="Index">Lista Wszystkich zdjęc</a></li>
+                                <li class=""><a href="#">Dodaj nowe zdjęcia</a></li>
+                                <li class=""><a href="#">Lista zdjęc nieprzypisanych</a></li>
+
+                            </ul>
+                        </li>
+                        <li class="">
+                            <a href="#charts" class="has-arrow" aria-expanded="false"><i class="fa fa-database"></i> <span>Magazyn</span></a>
+                            <ul aria-expanded="true">
+                                <li class=""><a asp-area="" asp-controller="Lamps" asp-action="Index">Lista Lamp</a></li>
+                                <li class=""><a asp-area="" asp-controller="ModelLamps" asp-action="Index">Dodaj Model Lamp</a></li>
+                                <li class=""><a asp-area="" asp-controller="Products" asp-action="Index">Dodaj Produkt</a></li>
+                                <li class=""><a asp-area="" asp-controller="Categories" asp-action="Index">Dodaj Kategorie Produktu</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="">
+                            <a href="#charts" class="has-arrow" aria-expanded="false"><i class="fa fa-map"></i> <span>GPS</span><span class="badge bg-danger">15</span></a>
+                            <ul aria-expanded="true">
+                                <li class=""><a asp-area="" asp-controller="GPS" asp-action="Index"><span>Mapa lamp</span></a></li>
+                                <li class=""><a asp-area="" asp-controller="GPS" asp-action="Create"><span>Dodaj lokalizacje</span></a></li>
+                                <li class=""><a asp-area="" asp-controller="GPS" asp-action="Mapa"><span>Dodaj lokalizacja z mapy</span></a></li>
+                                <li class=""><a asp-area="" asp-controller="GPS" asp-action="Index"><span>Nie przypisane lokalizacje</span></a></li>
+
+                            </ul>
+                        </li>
+
+                    </ul>
+                </nav>
+
+            </div>
+        </div>
+        <!-- END LEFT SIDEBAR -->
+        <!-- MAIN CONTENT https://localhost:44352/api/lampy.json/numer -->
+        <div id="main-content">
+            @RenderBody()
+        </div>
+    </div>
+    <!-- END MAIN CONTENT -->
+    <div class="clearfix"></div>
+    <footer>
+        <p class="copyright">&copy; 2018 <a href="http://sygula.nazwa.pl" >Mateusz Syguła</a>. All Rights Reserved.</p>
+
+        <p class="copyright">&copy; 2017 <a href="https://www.themeineed.com" target="_blank">Theme I Need</a>. All Rights Reserved.</p>
+    </footer>
+
+    <!-- END WRAPPER -->
+    <!-- Javascript -->
+    <script src="~/theme/assets/vendor/jquery/jquery.min.js"></script>
+    <script src="~/theme/assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/theme/assets/vendor/metisMenu/metisMenu.js"></script>
+    <script src="~/theme/assets/vendor/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="~/theme/assets/vendor/jquery-sparkline/js/jquery.sparkline.min.js"></script>
+    <script src="~/theme/assets/vendor/bootstrap-progressbar/js/bootstrap-progressbar.min.js"></script>
+    <script src="~/theme/assets/vendor/toastr/toastr.js"></script>
+    <script src="~/theme/assets/scripts/common.js"></script>
+
+
+    
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

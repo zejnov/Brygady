@@ -1,0 +1,49 @@
+﻿@model IEnumerable<Brygady2.Models.Photos>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<p>
+    <a asp-action="Create">Dodaj nowe zdjęcie</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PhotoName)
+            </th>
+   
+            <th>
+                @Html.DisplayNameFor(model => model.PhotoURL)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhotoInfo)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhotoName)
+            </td>
+         
+            <td>
+                
+                <img src="@Html.DisplayFor(modelItem => item.PhotoURL)"  alt="@Html.DisplayFor(modelItem => item.PhotoName)" class="img-thumbnail" height="200" width="200"/>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhotoInfo)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdPhoto">Edytuj</a> |
+                <a asp-action="Details" asp-route-id="@item.IdPhoto">Szczegóły</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdPhoto">Usuń</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

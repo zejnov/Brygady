@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Brygady2.Models.Lamps>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Dodaj nową lampę</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IdLamp)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ModelLamp)
+            </th>
+            <td>
+                @Html.DisplayNameFor(model => model.ModelLamp)
+            </td>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdLamp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModelLamp.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModelLamp.Name)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdLamp">Edytuj</a> |
+                <a asp-action="Details" asp-route-id="@item.IdLamp">Szczegóły</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdLamp">Usuń</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

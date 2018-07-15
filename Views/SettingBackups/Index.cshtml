@@ -1,0 +1,89 @@
+﻿@model IEnumerable<Brygady2.Models.SettingBackups>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Dodaj nowe ustawienia regulatora</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Time1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dim1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Time2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dim2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Time3)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dim3)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Batterytype)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Lvd)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Comment)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Time1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dim1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Time2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dim2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Time3)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dim3)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Batterytype)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Lvd)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Comment)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdSettingBackup">Edytuj</a> |
+                <a asp-action="Details" asp-route-id="@item.IdSettingBackup">Szczegóły</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdSettingBackup">Usuń</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

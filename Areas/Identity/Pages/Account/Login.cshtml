@@ -1,0 +1,118 @@
+﻿@page
+@model LoginModel
+
+@{
+    ViewData["Title"] = "Log in";
+    Layout = null;
+
+}
+
+
+<!doctype html>
+<html lang="en" class="fullscreen-bg">
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="192x192" href="~/images/brain150.png">
+    <title>@ViewBag.Title</title>
+    <environment include="Development,Staging,Production">
+
+        <!-- MAIN CSS -->
+        <link rel="stylesheet" href="~/theme/assets/css/main.css" />
+        <!-- FOR DEMO PURPOSES ONLY. You should remove this in your project
+    <link rel="stylesheet" href="~/theme/assets/css/demo.css"  -->
+        <!-- GOOGLE FONTS -->
+        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
+        <!-- ICONS -->
+        <link rel="apple-touch-icon" sizes="76x76" href="~/theme/assets/img/apple-icon.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="~/theme/assets/img/favicon.png">
+
+        <!-- VENDOR CSS -->
+        <link rel="stylesheet" href="~/theme/assets/vendor/bootstrap/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="~/theme/assets/vendor/font-awesome/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="~/theme/assets/vendor/linearicons/style.css" />
+        <link rel="stylesheet" href="~/theme/assets/vendor/metisMenu/metisMenu.css" />
+        <link rel="stylesheet" href="~/theme/assets/vendor/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" />
+        <link rel="stylesheet" href="~/theme/assets/vendor/chartist/css/chartist.min.css" />
+        <link rel="stylesheet" href="~/theme/assets/vendor/chartist-plugin-tooltip/chartist-plugin-tooltip.css" />
+        <link rel="stylesheet" href="~/theme/assets/vendor/toastr/toastr.min.css" />
+        <!-- MAIN CSS -->
+        <link rel="stylesheet" href="~/theme/assets/css/main.css" />
+        <!-- FOR DEMO PURPOSES ONLY. You should remove this in your project
+    <link rel="stylesheet" href="assets/css/demo.css">-->
+        <!-- GOOGLE FONTS -->
+        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
+        <!-- ICONS -->
+        <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="assets/img/favicon.png">
+    </environment>
+</head>
+<body>
+    <!-- WRAPPER -->
+    <div id="wrapper">
+        <div class="vertical-align-wrap">
+            <div class="vertical-align-middle">
+                <div class="auth-box">
+                    <div class="content">
+                        <div class="header">
+                            <div class="logo text-center"><img src="~/theme/assets/img/brain150.png" alt="Zarządzaj Brygadami"></div>
+                            <p class="lead">Zaloguj się aby zarządzać brygadami</p>
+                        </div>
+
+
+                        <form class="form-auth-small" method="post">
+
+                            <div asp-validation-summary="All" class="text-danger"></div>
+                            <div class="form-group">
+                                <input asp-for="Input.UserName" type="text" class="form-control"  placeholder="Login" />
+                                <span asp-validation-for="Input.UserName" class="text-danger"></span>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="signin-password" class="control-label sr-only">Password</label>
+                                <input asp-for="Input.Password" class="form-control" id="signin-password" placeholder="Password" />
+                                <span asp-validation-for="Input.Password" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group clearfix">
+                                <div class="checkbox" >
+                                    <label asp-for="Input.RememberMe">
+                                        <input asp-for="Input.RememberMe" />
+                                        @Html.DisplayNameFor(m => m.Input.RememberMe)
+                                    </label>
+                                    <span class="helper-text element-right">Nie posiadasz jeszcze konta?<br /> Skontaktuj się z administratorem! <a href="page-register.html">Mail</a></span>
+                                </div>
+                               
+                            </div>
+
+                         
+
+                            <!-- Button login -->
+                            <button type="submit" class="btn btn-primary btn-lg btn-block">Login</button>
+
+                            <div class="bottom">
+                                <p>
+                                    <span class="helper-text"><i class="fa fa-lock"></i> <a asp-page="./ForgotPassword">Forgot your password?</a></span>
+                                </p>
+                               
+                            </div>
+                            
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END WRAPPER -->
+</body>
+</html>
+
+
+
+
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
